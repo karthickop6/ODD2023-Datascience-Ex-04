@@ -60,43 +60,7 @@ sns.displot(df, x="Region", hue="Category")
 df.corr()
 sns.heatmap(df.corr(),annot=True)
 ```
-### diabetes.csv file:
-```
-import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
-df=pd.read_csv("/content/diabetes.csv")
-df
-df.describe()
-df.info
-df.isnull().sum()
 
-sns.scatterplot(x=df['Glucose'],y=df['BloodPressure'])
-
-sns.scatterplot(x=df['Glucose'], y=df['BloodPressure'], hue=df['Outcome'])
-
-Age=df.loc[:,["Age","BMI"]]
-Age=Age.groupby(by=["Age"]).sum().sort_values(by="BMI")
-plt.figure(figsize=(12,5))
-plt.xticks(rotation=90)
-sns.barplot(x=Age.index,y="BMI",data=Age)
-
-Age=df.loc[:,["BloodPressure","Glucose"]]
-Age=Age.groupby(by=["BloodPressure"]).sum().sort_values(by="Glucose")
-sns.barplot(x=Age.index,y="Glucose",data=Age)
-plt.xticks(rotation = 90)
-plt.xlabel=("BloodPressure")
-plt.ylabel=("Glucose")
-plt.show()
-
-sns.boxplot(x=df['DiabetesPedigreeFunction'],y=df['Insulin'])
-
-sns.displot(df, x="Glucose", hue="Outcome")
-
-df.corr()
-
-sns.heatmap(df.corr(),annot=True)
-```
 ## OUTPUT:
 ## SUPERSTORE:
 ### DATA FRAME OF SUPERSTORE
@@ -146,6 +110,45 @@ sns.heatmap(df.corr(),annot=True)
 
 
 ## DIABETES
+
+### diabetes.csv file:
+```
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+df=pd.read_csv("/content/diabetes.csv")
+df
+df.describe()
+df.info
+df.isnull().sum()
+
+sns.scatterplot(x=df['Glucose'],y=df['BloodPressure'])
+
+sns.scatterplot(x=df['Glucose'], y=df['BloodPressure'], hue=df['Outcome'])
+
+Age=df.loc[:,["Age","BMI"]]
+Age=Age.groupby(by=["Age"]).sum().sort_values(by="BMI")
+plt.figure(figsize=(12,5))
+plt.xticks(rotation=90)
+sns.barplot(x=Age.index,y="BMI",data=Age)
+
+Age=df.loc[:,["BloodPressure","Glucose"]]
+Age=Age.groupby(by=["BloodPressure"]).sum().sort_values(by="Glucose")
+sns.barplot(x=Age.index,y="Glucose",data=Age)
+plt.xticks(rotation = 90)
+plt.xlabel=("BloodPressure")
+plt.ylabel=("Glucose")
+plt.show()
+
+sns.boxplot(x=df['DiabetesPedigreeFunction'],y=df['Insulin'])
+
+sns.displot(df, x="Glucose", hue="Outcome")
+
+df.corr()
+
+sns.heatmap(df.corr(),annot=True)
+```
+
 ### DATA FRAME FOR DIABETES
 
 ![273436553-d4d5c50b-015f-4d2a-bb29-39370301a9ce](https://github.com/KRISHNARAJ-D/ODD2023-Datascience-Ex-04/assets/119559695/665047fb-3302-4905-b488-a4c9599b7526)
